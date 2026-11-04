@@ -1,0 +1,102 @@
+﻿/* Viewer-first live scene: interaction belongs inside the sanctuary. */
+body { background:#091b1d; }
+.app-workspace { gap:28px;background:radial-gradient(ellipse at 30% 30%,#24413b,#091b1d 70%); }
+.stage-wrapper { border:1px solid #c5bb8866;border-radius:24px;box-shadow:0 20px 80px #0008; }
+.showcase .sanctuary-bg-img { opacity:1;filter:saturate(.85); }
+.showcase-shade { position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(180deg,#081f20c9,transparent 13%,transparent 48%,#0b2e2d44 58%,#0b3233e8 77%,#09292a 100%); }
+.showcase .minimal-top-bar { top:142px;left:44px;right:44px;z-index:20; }
+.showcase .top-Right-badges { display:none; }
+.showcase .live-pill { font-size:17px;padding:10px 16px;background:#091f20a8;border:1px solid #b9e4d233;color:#d2e8de; }
+.showcase .bottom-hud-bar,.showcase .congregation-hall,.showcase .vip-cushions-layer,.showcase .ritual-hotspot,.showcase .grand-ceremony-banner { display:none; }
+.show-brand { position:absolute;top:35px;left:44px;right:44px;z-index:22;display:flex;gap:18px;align-items:center; }
+.brand-mark { width:64px;height:64px;border:1px solid #e8ce9d66;border-radius:50%;display:grid;place-items:center;color:#e8ce9d;font-size:45px; }
+.brand-name { font:700 34px 'Noto Serif',serif;letter-spacing:6px;color:#f4eddb; }
+.brand-name span { display:block;font:12px 'Be Vietnam Pro',sans-serif;letter-spacing:2px;margin-top:8px;color:#b7caba; }
+.on-air { margin-left:auto;color:#bdd7cc;border:1px solid #d3e5d333;border-radius:30px;padding:12px 16px;font-size:14px;letter-spacing:2px;display:flex;align-items:center;gap:10px; }
+.on-air i { width:8px;height:8px;background:#a4dbb2;border-radius:50%;box-shadow:0 0 15px #eac285; }
+.scene-intro { position:absolute;top:188px;left:44px;z-index:21;opacity:.85; }
+.scene-intro span { font-size:12px;letter-spacing:3px;color:#cebd96; }.scene-intro p { font:italic 21px 'Noto Serif',serif;color:#f2e8cb;margin-top:8px; }
+.showcase .living-atmosphere { z-index:4; }
+.showcase .central-worshipper { display:flex;top:940px;opacity:0;transition:opacity .5s;z-index:18; }
+.showcase.ritual-active .central-worshipper { opacity:1; }
+.showcase .central-sprite-stack { transform:scale(1.5);transform-origin:bottom center; }
+.showcase .worshipper-wish-bubble { display:none; }
+.showcase .central-name-tag { margin-top:8px; }.showcase .tag-name { font-size:24px; }.showcase .tag-sub { font-size:16px; }
+.showcase .incense-burner-zone { display:block; }
+.viewer-garden { position:absolute;left:0;right:0;top:1305px;height:430px;z-index:19;pointer-events:none; }
+.viewer-garden:before { content:'';position:absolute;inset:-60px 0 -55px;background:repeating-radial-gradient(ellipse at 50% 80%,transparent 0 42px,#d9e4aa0a 44px 46px,transparent 48px 80px);transform:scaleY(.5);animation:pondFlow 10s ease-in-out infinite alternate; }
+@keyframes pondFlow { to { transform:scale(1.08,.56) translateY(-20px);opacity:.4; } }
+.viewer-lotus { position:absolute;width:150px;height:125px;text-align:center;transform:translateX(-50%) scale(var(--depth)); }
+.lotus-flower { width:130px;height:85px;position:relative;margin:0 auto;filter:drop-shadow(0 0 18px #f5b7cc77);animation:lotusDrift 4s ease-in-out infinite alternate; }
+.lotus-flower i { position:absolute;bottom:6px;left:45px;width:43px;height:70px;border-radius:85% 10% 70% 25%;background:linear-gradient(140deg,#fff2dd,#e886ab 65%,#804b76);border:1px solid #ffcbd6aa;transform-origin:50% 100%;transform:rotate(calc((var(--petal) - 3) * 23deg)); }
+.lotus-flower:after { content:'';position:absolute;bottom:-3px;left:2px;width:130px;height:20px;border-radius:50%;border:1px solid #d5e8b844;box-shadow:0 8px 25px #f9b6c033; }
+.viewer-lotus.gold .lotus-flower i { background:linear-gradient(140deg,#fff5ca,#e6b45b 65%,#8c6030);border-color:#ffe7a8; }
+.viewer-lotus span { display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:20px;font-weight:600;color:#fff0d7;text-shadow:0 2px 8px #000;background:#0a282aa6;padding:5px 8px;border-radius:16px; }
+.viewer-lotus.bloom .lotus-flower i { animation:petalOpen 1.2s ease-out; }
+@keyframes petalOpen { from { opacity:0;transform:rotate(0deg) scale(.2); } }
+@keyframes lotusDrift { to { transform:translateY(-9px) rotate(3deg); } }
+.viewer-messages { position:absolute;top:690px;right:40px;width:430px;z-index:26;display:flex;flex-direction:column;gap:10px;pointer-events:none; }
+.viewer-note { border:1px solid #e3c38a77;border-radius:22px 22px 4px 22px;background:#102c2be8;padding:18px 24px;animation:noteFloat 11s ease-out forwards;box-shadow:0 8px 25px #0003; }
+.viewer-note strong { font-size:23px;color:#edd5a3; }.viewer-note p { font-size:24px;line-height:1.45;color:#fff1dc;margin-top:6px;overflow-wrap:anywhere; }
+@keyframes noteFloat { 0% { opacity:0;transform:translateY(25px); } 8%,82% { opacity:1; } 100% { opacity:0;transform:translateY(-35px); } }
+.scene-response { position:absolute;top:1175px;left:80px;right:80px;z-index:28;display:flex;align-items:center;justify-content:center;gap:22px;padding:24px;border:1px solid #c5cfa033;border-radius:24px;background:linear-gradient(90deg,#10353455,#0c2c2de8,#10353455);transition:background .4s; }
+.scene-response.active { border-color:#e2bd8088;background:#102f2fe8;box-shadow:0 0 55px #dfbd751a; }.scene-response>span { font-size:48px;color:#f8acbd; }.scene-response strong { font-size:28px;color:#fae1aa; }.scene-response p { font-size:22px;line-height:1.4;margin-top:5px;color:#d5e3d6;overflow-wrap:anywhere; }
+.viewer-instructions { position:absolute;left:44px;right:44px;bottom:100px;z-index:25;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-top:1px solid #d3d5a633;padding-top:24px;text-align:center; }
+.viewer-instructions span { font-size:34px;color:#ffaac2; }.viewer-instructions strong { display:block;font-size:25px;color:#f3e5be;margin-top:5px; }.viewer-instructions small { display:block;font-size:18px;color:#b4cdbd;margin-top:7px; }
+.comment-cue { position:absolute;bottom:32px;left:30px;right:30px;text-align:center;color:#afc6b5;font-size:21px;z-index:25; }.comment-cue b { color:#e8d09f;font-weight:600; }
+.gift-spotlight { position:absolute;top:760px;left:65px;right:65px;height:530px;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse,#294537f0,#0a282cf5);border:1px solid #e7c98799;border-radius:30px;opacity:0;visibility:hidden;transform:scale(.85);transition:opacity .4s,transform .4s,visibility .4s;overflow:hidden;pointer-events:none;box-shadow:0 0 100px #e4b95522; }
+.gift-spotlight.visible { opacity:1;visibility:visible;transform:scale(1); }.spotlight-orbit { position:absolute;inset:15px;border:1px dashed #e2c48433;border-radius:50%;animation:haloSpinCw 25s linear infinite; }.spotlight-kicker { color:#e9cd91;font-size:18px;letter-spacing:3px;position:relative; }.spotlight-art { position:relative;font-size:108px;line-height:1.2;filter:drop-shadow(0 0 30px #e9c28677); }.gift-spotlight h2 { position:relative;font:700 48px 'Noto Serif',serif;color:#fff0c9;max-width:90%;overflow-wrap:anywhere;text-align:center; }.gift-spotlight p { position:relative;color:#c7ddc8;font-size:25px;margin-top:8px; }.spotlight-coins { position:relative;color:#f4dca7;font-size:24px;margin-top:15px; }.spotlight-signature { position:relative;color:#9cbca2;font-size:13px;letter-spacing:2px;margin-top:22px; }
+.showcase.gift-burst:after { content:'';position:absolute;inset:0;z-index:33;pointer-events:none;box-shadow:inset 0 0 140px #efc97455;animation:giftGlow 1.2s ease-in-out infinite alternate; }
+@keyframes giftGlow { to { box-shadow:inset 0 0 220px #efc97499; } }
+.showcase .live-reactions { z-index:41; }.showcase .host-caption { top:1050px;background:#0c2d2def;z-index:30; }.showcase .audio-gate { top:570px;left:250px;right:250px;background:#0c2d2de8;font-size:22px;border-color:#c6c19377; }
+.showcase .sky-lantern { font-size:22px; }.showcase .sky-lantern-user { font-size:22px; }.showcase .sky-lantern-wish { font-size:20px; }
+.quick-dock { background:#0b2223;border-color:#a6c6a63b; }.dock-section { background:#0d2929;border-color:#a9c7aa2b; }.dock-btn { background:#153734;border-color:#82a58e55;color:#d6dfca; }.dock-btn.gold { background:linear-gradient(120deg,#d3bc86,#ebd7ab);color:#142c26;border-color:#f2dfb4; }.dock-section-title,.dock-title { color:#dfd3ad; }.dock-input { background:#091e20;border-color:#8aab9555;color:#d8e7db; }.showcase-controls p { color:#abc2b0;font-size:12px;line-height:1.6; }
+@media(max-width:900px) { body:not(.obs-mode) { overflow:auto;height:auto; } body:not(.obs-mode) .app-workspace { height:auto;min-height:100vh;flex-direction:column;padding:12px;gap:20px; } body:not(.obs-mode) .stage-wrapper { width:min(100%,540px);height:auto;flex:none;aspect-ratio:9/16; } body:not(.obs-mode) .quick-dock { width:min(100%,540px);height:auto;max-height:none;flex:none; } }
+@media(prefers-reduced-motion:reduce) { .lotus-flower,.viewer-garden:before,.spotlight-orbit,.showcase.gift-burst:after { animation:none; }.viewer-lotus.bloom .lotus-flower i { animation:none; }.viewer-note { animation-duration:11s; } }
+/* Independent walkers: each participant keeps their own pose and path. */
+.showcase .carpet-walker-layer { position:absolute;inset:0;z-index:22;pointer-events:none;overflow:hidden; }
+.showcase .central-worshipper { display:none; }
+.pilgrim-actor { position:absolute;left:0;top:0;width:150px;height:210px;transform-origin:50% 100%;will-change:transform;pointer-events:none; }
+.pilgrim-frames { position:absolute;bottom:40px;left:5px;width:140px;height:180px;filter:drop-shadow(0 8px 5px #0005); }
+.pilgrim-frames img { position:absolute;bottom:0;left:0;width:140px;height:180px;object-fit:contain;opacity:0; }.pilgrim-frames img.active { opacity:1; }
+.pilgrim-name { position:absolute;bottom:18px;left:50%;transform:translateX(-50%);max-width:230px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px 12px;border-radius:18px;border:1px solid #edc88999;background:#123432e8;color:#ffe6b6;font-size:19px;font-weight:600; }
+.pilgrim-action { position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);white-space:nowrap;color:#d6e0cd;font-size:13px;text-shadow:0 2px 4px #000; }
+.ambient-pilgrim { filter:saturate(.6); }.ambient-pilgrim .pilgrim-name { font-size:15px;color:#b3ccbd;border-color:#9bb6a155;background:#13302cad; }.ambient-pilgrim .pilgrim-action { font-size:12px;color:#8cae9c; }
+.pilgrim-incense { position:absolute;top:54px;left:62px;width:30px;height:42px;opacity:0; }.offering .pilgrim-incense { opacity:1; }
+.pilgrim-incense i { position:absolute;bottom:0;left:12px;width:2px;height:35px;background:linear-gradient(#ffbb5b 0 5%,#bc5b38 6% 70%,#e2c785 71%);box-shadow:0 -3px 7px #ffbf5a; }.pilgrim-incense i:nth-child(2) { left:7px;transform:rotate(-8deg); }.pilgrim-incense i:nth-child(3) { left:17px;transform:rotate(8deg); }
+.pilgrim-incense:before { content:'';position:absolute;top:-20px;left:4px;width:20px;height:30px;border-radius:50%;background:radial-gradient(ellipse,#eee2bd44,transparent 65%);animation:pilgrimSmoke 2.5s ease-out infinite; }
+@keyframes pilgrimSmoke { to { transform:translate(7px,-40px) scale(2);opacity:0; } }
+.viewer-pilgrim.acknowledged .pilgrim-name { border-color:#fff0ba;box-shadow:0 0 18px #f2d48766; }
+.ambient-scene-label { position:absolute;left:35px;top:1715px;z-index:24;font-size:15px;color:#9bb9a5;letter-spacing:.5px; }.ambient-scene-label[hidden] { display:none; }
+@media(prefers-reduced-motion:reduce) { .pilgrim-incense:before { animation:none; } }
+.showcase .scene-response { top:1300px; }
+.showcase .viewer-garden { top:1430px; height:290px; }
+.showcase .ambient-scene-label { top:1680px; }
+/* Broadcast scene has no sound-permission button or connection/viewer counters. */
+.showcase .minimal-top-bar,.showcase .on-air { display:none; }
+.wish-invitation { position:absolute;top:1510px;left:65px;right:65px;z-index:31;display:flex;gap:20px;align-items:center;padding:24px 28px;border:1px solid #e2bb7aaa;border-radius:24px;background:linear-gradient(110deg,#4b3023f2,#18392ff2);box-shadow:0 0 60px #e8bd6b22;animation:wishArrive .5s ease-out;pointer-events:none; }
+.wish-invitation[hidden] { display:none; }.wish-invitation>span { font-size:60px; }.wish-invitation strong { display:block;color:#ffe5b1;font-size:30px; }.wish-invitation p { color:#d5dfcb;font-size:21px;line-height:1.5;margin-top:8px; }
+@keyframes wishArrive { from { opacity:0;transform:translateY(20px); } to { opacity:1;transform:translateY(0); } }
+.ambient-pilgrim .pilgrim-name { font-size:18px;color:#c6ddc9; }.ambient-pilgrim .pilgrim-action { font-size:13px; }
+/* Each simulated actor already carries its own disclosure. */
+.showcase .ambient-scene-label { display:none; }
+.temple-duel { position:absolute;top:1250px;left:95px;right:95px;height:410px;z-index:23;pointer-events:none; }
+.duel-head { display:flex;justify-content:space-between;color:#f0d49a;font-size:21px;letter-spacing:2px;font-weight:700; }.duel-head span:last-child { color:#d2a4ef; }.duel-head b { font-size:25px;padding:0 8px; }.duel-head small { font-size:16px;color:#b9d1bb; }
+.duel-health { display:flex;align-items:center;gap:20px;margin-top:12px; }.duel-health>div { flex:1;height:21px;border-radius:14px;background:#152127;border:1px solid #d4ceac66;overflow:hidden;position:relative; }.duel-health em { color:#eedca4;font-size:25px; }.duel-health i { display:block;height:100%;width:100%;transition:width .4s;background:linear-gradient(90deg,#b77f3a,#f1d185); }.duel-health .demon-health i { margin-left:auto;background:linear-gradient(90deg,#9263b9,#c99aeb); }.duel-health span { position:absolute;inset:0;text-align:center;color:#fff6dd;font-size:15px;font-weight:700;text-shadow:0 1px 2px #000; }
+.duel-floor { position:absolute;left:50px;right:50px;bottom:70px;height:110px;border:2px solid #e5c88c55;border-radius:50%;background:radial-gradient(ellipse,#c5a96b22,transparent 65%);box-shadow:0 0 35px #c8b68118; }.duel-floor:after { content:'';position:absolute;inset:12px;border:1px dashed #a8cab44d;border-radius:50%; }
+.duel-fighter { position:absolute;top:88px;width:210px;height:252px;filter:drop-shadow(0 10px 10px #0006); }.duel-fighter svg { width:100%;height:100%;overflow:visible; }.hero-fighter { left:110px;--direction:1; }.demon-fighter { right:110px;--direction:-1; }.demon-fighter svg { transform:scaleX(-1); }
+.fighter-aura { transform-origin:100px 88px;animation:haloSpinCw 15s linear infinite; }.fighter-arm { transform-origin:125px 111px;animation:fighterGuard 2s ease-in-out infinite alternate; }.demon-tail { transform-origin:145px 175px;animation:tailWave 2s ease-in-out infinite alternate; }
+@keyframes fighterGuard { to { transform:rotate(-9deg); } }@keyframes tailWave { to { transform:rotate(14deg); } }
+.duel-fighter.attacking { animation:fighterLunge .6s ease-out; }.attacking .fighter-arm { animation:staffStrike .5s ease-out; }.duel-fighter.hit { animation:fighterHit .5s ease-out; }.duel-fighter.dodging { animation:fighterDodge .55s ease-in-out; }
+@keyframes fighterLunge { 40% { transform:translateX(calc(var(--direction) * 85px)) rotate(calc(var(--direction) * 8deg)); } }
+@keyframes staffStrike { 50% { transform:rotate(-65deg); } }
+@keyframes fighterHit { 25% { filter:brightness(1.8) drop-shadow(0 0 25px #fff2b9);transform:translateX(calc(var(--direction) * -25px)); } }
+@keyframes fighterDodge { 45% { transform:translateY(-50px) translateX(calc(var(--direction) * -30px));opacity:.55; } }
+.duel-fighter.defeated { transform:translateY(30px) rotate(calc(var(--direction) * -38deg));opacity:.35;transition:transform .6s,opacity .6s; }.round-finished .fighter-arm { animation:none; }
+.duel-projectile { position:absolute;top:205px;width:55px;height:45px;border-radius:50%;opacity:0;background:radial-gradient(ellipse,#fff9d3,#f8c25277,transparent 70%);filter:drop-shadow(0 0 12px #f6d176); }.duel-projectile.flying { animation:duelBolt .6s ease-out; }.duel-projectile.from-hero { left:300px;--travel:230px; }.duel-projectile.from-demon { right:300px;--travel:-230px;background:radial-gradient(ellipse,#f0d6ff,#b56be577,transparent 70%);filter:drop-shadow(0 0 12px #b186e8); }.duel-projectile.charged { width:100px;height:80px;top:185px; }
+@keyframes duelBolt { 0% { opacity:0;transform:translateX(0) scale(.5); } 20%,70% { opacity:1; } 100% { opacity:0;transform:translateX(var(--travel)) scale(1.5); } }
+.duel-impact { position:absolute;top:120px;left:90px;right:90px;text-align:center;color:#fff0ac;font-size:34px;font-weight:800;opacity:0;text-shadow:0 2px 10px #000; }.duel-impact.impact-demon { color:#ead3ff; }.duel-impact.pop { animation:damagePop .7s ease-out; }@keyframes damagePop { 10%,60% { opacity:1; } to { opacity:0;transform:translateY(-40px); } }
+.duel-result { position:absolute;top:165px;left:35px;right:35px;text-align:center;font:700 35px 'Noto Serif',serif;color:#ffe2a4;text-shadow:0 2px 20px #0a1d22;background:#0c292be8;border:1px solid #e1c79099;border-radius:18px;padding:20px;opacity:0;visibility:hidden;z-index:5; }.round-finished .duel-result { opacity:1;visibility:visible; }
+.duel-energy { position:absolute;bottom:0;left:0;right:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px;color:#c9d9ba;font-size:14px; }.duel-energy>div { height:7px;flex:1;background:#081d20;border-radius:6px;overflow:hidden; }.duel-energy i { display:block;height:100%;background:#f3d27c;width:0;transition:width .4s; }.duel-energy strong { flex-basis:100%;font-weight:400;text-align:center;font-size:18px;color:#c1d6c0; }
+.showcase .scene-response { top:1100px;left:100px;right:100px;opacity:0; }.showcase .scene-response.active { opacity:1; }.showcase .viewer-garden { top:1430px;opacity:.4;z-index:18; }.showcase .wish-invitation { top:165px;left:200px;right:45px;padding:15px 20px;max-width:750px; }.showcase .wish-invitation strong { font-size:23px; }.showcase .wish-invitation p { font-size:17px; }.showcase .wish-invitation>span { font-size:38px; }
+@media(prefers-reduced-motion:reduce) { .fighter-aura,.fighter-arm,.demon-tail { animation:none; }.duel-fighter.attacking,.duel-fighter.hit,.duel-fighter.dodging { animation-duration:.15s; } }
